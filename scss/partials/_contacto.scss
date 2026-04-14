@@ -1,0 +1,141 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+#contacto {
+    @include section-padding;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $color-bg-2;
+
+    .contact-info {
+
+        .section-label {
+            color: $color-gold;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: $font-heading;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-desc {
+            color: $color-text-muted;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+
+            .contact-method {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .method-icon {
+                    width: 44px;
+                    height: 44px;
+                    background: rgba(201, 168, 76, 0.1);
+                    border: 1px solid rgba(201, 168, 76, 0.2);
+                    border-radius: 4px;
+                    @include flex-center;
+                    flex-shrink: 0;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .method-text {
+
+                    strong {
+                        display: block;
+                        font-size: 0.95rem;
+                        margin-bottom: 0.2rem;
+                    }
+
+                    span {
+                        color: $color-text-muted;
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-form-box {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+
+        .form-row {
+
+            label {
+                display: block;
+                font-size: 0.85rem;
+                color: $color-text-muted;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.05em;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                background: $color-bg;
+                border: 1px solid $color-border;
+                border-radius: 4px;
+                padding: 0.85rem 1rem;
+                color: $color-text;
+                font-family: $font-body;
+                font-size: 0.9rem;
+                transition: border-color 0.3s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-gold;
+                }
+
+                &::placeholder {
+                    color: #444;
+                }
+            }
+
+            select option {
+                background: $color-bg;
+            }
+        }
+
+        .form-submit {
+            @include btn-base;
+            background: $color-gold;
+            color: #000;
+            border: none;
+            width: 100%;
+            text-align: center;
+
+            &:hover {
+                background: $color-gold-light;
+            }
+        }
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}

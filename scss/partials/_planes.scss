@@ -1,0 +1,178 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+#planes {
+    @include section-padding;
+    text-align: center;
+    background: $color-bg-2;
+
+    .section-label {
+        color: $color-gold;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-family: $font-heading;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .section-sub {
+        color: $color-text-muted;
+        max-width: 500px;
+        margin: 0 auto 3rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .plan-card {
+        background: $color-bg;
+        border: 1px solid $color-border;
+        border-radius: 8px;
+        padding: 2.5rem 2rem;
+        position: relative;
+        text-align: left;
+        transition: border-color 0.3s ease;
+
+        &:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+        }
+
+        &.featured {
+            border-color: $color-gold;
+            transform: translateY(-8px);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: $color-gold;
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .plan-tier {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+
+            .tier-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+
+                &.bronce { background: #cd7f32; }
+                &.plata  { background: #c0c0c0; }
+                &.oro    { background: $color-gold; }
+            }
+
+            .plan-name {
+                font-family: $font-heading;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+        }
+
+        .plan-desc {
+            color: $color-text-muted;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .plan-price {
+            font-family: $font-heading;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: $color-gold;
+        }
+
+        .plan-price-label {
+            color: $color-text-muted;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.9rem;
+                color: $color-text-muted;
+            }
+
+            .check {
+                width: 16px;
+                height: 16px;
+                flex-shrink: 0;
+
+                &.yes { color: $color-gold; }
+                &.no  { color: #444; }
+            }
+        }
+
+        .plan-btn {
+            @include btn-base;
+            width: 100%;
+            text-align: center;
+            border: none;
+
+            &.primary {
+                background: $color-gold;
+                color: #000;
+
+                &:hover {
+                    background: $color-gold-light;
+                }
+            }
+
+            &.secondary {
+                background: transparent;
+                border: 1px solid $color-border;
+                color: $color-text;
+
+                &:hover {
+                    border-color: $color-gold;
+                    color: $color-gold;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        .cards-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+        }
+
+        .plan-card.featured {
+            transform: none;
+        }
+    }
+}

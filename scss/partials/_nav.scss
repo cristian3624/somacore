@@ -1,0 +1,60 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    @include flex-between;
+    padding: 1.5rem 4rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $color-border;
+
+    .logo {
+        font-family: $font-heading;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: $color-gold;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+
+        a {
+            color: $color-text-muted;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $color-gold;
+            }
+        }
+    }
+
+    .nav-cta {
+        @include btn-base;
+        background: $color-gold;
+        color: #000;
+
+        &:hover {
+            background: $color-gold-light;
+        }
+    }
+
+    @include tablet {
+        padding: 1.2rem 1.5rem;
+
+        .nav-links {
+            display: none;
+        }
+    }
+}

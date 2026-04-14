@@ -1,0 +1,35 @@
+// Variables y mixins primero
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+
+// Componentes
+@use 'partials/nav';
+@use 'partials/hero';
+@use 'partials/entrenador';
+@use 'partials/planes';
+@use 'partials/testimonios';
+@use 'partials/contacto';
+@use 'partials/footer';
+
+// Reset y base
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color-bg;
+    color: $color-text;
+    font-family: $font-body;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

@@ -1,0 +1,49 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+footer {
+    @include flex-between;
+    padding: 2rem 4rem;
+    border-top: 1px solid $color-border;
+    background: $color-bg;
+
+    .footer-logo {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        font-weight: 900;
+        color: $color-gold;
+        letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 2rem;
+
+        a {
+            color: $color-text-muted;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $color-gold;
+            }
+        }
+    }
+
+    .footer-copy {
+        color: $color-text-muted;
+        font-size: 0.8rem;
+    }
+
+    @include tablet {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+
+        .footer-links {
+            gap: 1.5rem;
+        }
+    }
+}

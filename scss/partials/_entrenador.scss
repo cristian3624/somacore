@@ -1,0 +1,124 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+#entrenador {
+    @include section-padding;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .trainer-img-wrap {
+        position: relative;
+
+        .trainer-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: $color-bg-2;
+            border: 1px solid $color-border;
+            border-radius: 4px;
+        }
+
+        .trainer-badge {
+            position: absolute;
+            bottom: -1.5rem;
+            right: -1.5rem;
+            background: $color-gold;
+            color: #000;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 4px;
+
+            strong {
+                display: block;
+                font-family: $font-heading;
+                font-size: 2rem;
+                font-weight: 900;
+            }
+
+            span {
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .trainer-info {
+
+        .section-label {
+            color: $color-gold;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: $font-heading;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .trainer-desc {
+            color: $color-text-muted;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+
+            .feature-icon {
+                width: 44px;
+                height: 44px;
+                background: rgba(201, 168, 76, 0.1);
+                border: 1px solid rgba(201, 168, 76, 0.2);
+                border-radius: 4px;
+                @include flex-center;
+                flex-shrink: 0;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .feature-text {
+
+                strong {
+                    display: block;
+                    font-size: 0.95rem;
+                    margin-bottom: 0.25rem;
+                }
+
+                span {
+                    color: $color-text-muted;
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        .trainer-img-wrap {
+            .trainer-badge {
+                right: 1rem;
+            }
+        }
+    }
+}
